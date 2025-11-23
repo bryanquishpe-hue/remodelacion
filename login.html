@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso al Sistema - Servicios de Construcción</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-image: url('https://rivayo.com/assets/images/servicios/residencial/diseno-residencial-en-cumbaya-foto-2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.55);
+            z-index: -1;
+        }
+        .card {
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 12px;
+        }
+        nav.navbar {
+            background: rgba(0,0,0,0.85) !important;
+            backdrop-filter: blur(6px);
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">ServiConstrucción</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="menu" class="collapse navbar-collapse">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html#servicios">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#proyectos">Proyectos</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#galeria">Galería</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#contacto">Contacto</a></li>
+                <li class="nav-item"><a class="nav-link text-warning" href="#">Acceso</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- LOGIN -->
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow-lg border-0">
+                <div class="card-body p-4">
+                    <h3 class="card-title text-center mb-4 fw-bold">Iniciar Sesión</h3>
+
+                    <!-- FORM LOGIN -->
+                    <form action="php/login.php" method="POST">
+                        <div class="mb-3">
+                            <label class="form-label">Usuario</label>
+                            <input type="text" class="form-control" name="usuario" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" name="password" required>
+                        </div>
+
+                        <div class="d-flex justify-content-between mb-3">
+                            <div>
+                                <input type="checkbox" id="recordar" class="form-check-input">
+                                <label for="recordar" class="form-check-label">Recordarme</label>
+                            </div>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#recuperarModal">¿Olvidaste tu contraseña?</a>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-dark fw-bold">Ingresar</button>
+                        </div>
+                    </form>
+
+                    <hr>
+                    <p class="text-center">
+                        ¿No tienes cuenta?
+                        <a href="#" class="text-success" data-bs-toggle="modal" data-bs-target="#registroModal">Regístrate aquí</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL RECUPERAR -->
+<div class="modal fade" id="recuperarModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Recuperar Contraseña</h5>
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <form action="php/recuperar.php" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Correo</label>
+                        <input type="email" class="form-control" name="correo" required>
+                    </div>
+                    <div class="d-grid">
+                        <button class="btn btn-warning">Enviar enlace</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- MODAL REGISTRO -->
+<div class="modal fade" id="registroModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">Crear Cuenta</h5>
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <form action="php/registro.php" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Nombre completo</label>
+                        <input type="text" class="form-control" name="nombre" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Correo</label>
+                        <input type="email" class="form-control" name="correo" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Usuario</label>
+                        <input type="text" class="form-control" name="usuario" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" name="password" required>
+                    </div>
+
+                    <div class="d-grid">
+                        <button class="btn btn-success">Registrarse</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white text-center py-4 mt-5">
+    <p class="mb-1">ServiConstrucción © 2025 | Todos los derechos reservados</p>
+    <p class="mb-0">
+        <a href="#" class="text-warning me-3">Facebook</a>
+        <a href="#" class="text-warning me-3">Instagram</a>
+        <a href="#" class="text-warning">Twitter</a>
+    </p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
